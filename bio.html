@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bio — NOME COGNOME</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<header class="header">
+  <div class="logo">NOME COGNOME</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/bio.html">Bio / Contatti</a>
+  </nav>
+  <div class="cta-group">
+    <a class="btn small" target="_blank"
+       href="https://www.linkedin.com/in/USERNAME">LinkedIn</a>
+    <a class="btn small outline" target="_blank"
+       href="https://drive.google.com/FILE_ID/view?usp=sharing">Curriculum</a>
+  </div>
+</header>
+
+<main class="bio">
+  <img src="https://picsum.photos/seed/portrait/600/800" alt="Portrait" />
+  <div>
+    <h1>About</h1>
+    <p>Short bio placeholder (2–4 righe). Background, approach, mindset.</p>
+
+    <h3>Servizi</h3>
+    <ul>
+      <li>Branding & Visual Identity</li>
+      <li>UI/UX & Product Design</li>
+      <li>Creative Development</li>
+    </ul>
+
+    <div class="contact">
+      <p>Email: nomecognome@email.com</p>
+      <button onclick="navigator.clipboard.writeText('nomecognome@email.com')">
+        Copia email
+      </button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <a href="mailto:nomecognome@email.com">nomecognome@email.com</a>
+</footer>
+
+</body>
+</html>
