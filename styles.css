@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Anton&display=swap');
 
 :root {
-  --bg: #3b3b3b;
-  --text: #f4f4f4;
+  --bg: #f8ffce;
+  --text: #000000;
   --muted: #9a9a9a;
-  --accent: #ffffff;
+  --accent: #000000;
 }
 
 * {
