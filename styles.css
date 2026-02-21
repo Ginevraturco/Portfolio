@@ -1,122 +1,344 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Anton&display=swap');
 
-  <title>Ginevra Turco — Communication Strategist & Creative Technologist</title>
-  <meta name="description" content="Portfolio di Ginevra Turco — Communication Strategist & Creative Technologist." />
+:root {
+  --bg: #0d0d0d;
+  --text: #f4f4f4;
+  --muted: #999;
+  --accent: #ff3c3c;
+}
 
-  <meta property="og:title" content="Ginevra Turco — Portfolio" />
-  <meta property="og:description" content="Strategia, creatività e tecnologia per progetti che generano impatto." />
-  <meta property="og:type" content="website" />
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <link rel="stylesheet" href="styles.css" />
-</head>
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
-<body>
+/* ---------- LAYOUT SYSTEM ---------- */
 
-<header class="header">
-  <div class="container header-inner">
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
 
-    <div class="logo">GINEVRA TURCO</div>
+@media (min-width: 768px) {
+  .container { padding: 0 3rem; }
+}
 
-    <nav>
-      <a href="/">Home</a>
-      <a href="/bio.html">Bio / Contatti</a>
-    </nav>
+@media (min-width: 1200px) {
+  .container { padding: 0 6rem; }
+}
 
-    <div class="cta-group">
-      <a class="btn small"
-         target="_blank"
-         href="https://www.linkedin.com/in/ginevra-turco/">
-         LinkedIn
-      </a>
+/* ---------- HEADER ---------- */
 
-      <a class="btn small outline"
-         target="_blank"
-         href="https://drive.google.com/drive/folders/1_P3_TYQas4S1EP2ArUDu0mNah4yTBnCT?usp=sharing">
-         Curriculum
-      </a>
-    </div>
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(13,13,13,0.7);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  z-index: 100;
+}
 
-  </div>
-</header>
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+}
 
+.logo {
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 3px;
+  font-size: 1.1rem;
+}
 
-<main>
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  position: relative;
+}
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background: var(--accent);
+  transition: 0.3s ease;
+}
 
-      <span class="badge">
-        Based in Italy · Available for freelance
-      </span>
+nav a:hover::after {
+  width: 100%;
+}
 
-      <h1>
-        Communication Strategist — Creative Technologist
-      </h1>
+/* ---------- BUTTONS ---------- */
 
-      <p>
-        Strategia, creatività e tecnologia per progetti che generano impatto.
-      </p>
+.btn {
+  background: var(--accent);
+  color: white;
+  padding: 0.6rem 1.1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: all .25s ease;
+}
 
-      <div class="hero-cta">
-        <a class="btn"
-           target="_blank"
-           href="https://www.linkedin.com/in/ginevra-turco/">
-           LinkedIn
-        </a>
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255,60,60,0.3);
+}
 
-        <a class="btn outline"
-           target="_blank"
-           href="https://drive.google.com/drive/folders/1_P3_TYQas4S1EP2ArUDu0mNah4yTBnCT?usp=sharing">
-           Curriculum
-        </a>
-      </div>
+.btn.outline {
+  background: transparent;
+  border: 1px solid var(--accent);
+}
 
-    </div>
-  </div>
-</section>
+.btn.small {
+  font-size: 0.8rem;
+}
 
+/* ---------- HERO ---------- */
 
-<section class="projects">
-  <div class="container">
-    <h2 class="section-title">Selected Work</h2>
-    <div id="projectGrid" class="grid"></div>
-  </div>
-</section>
+.hero {
+  padding: 10rem 0 7rem 0;
+}
 
+.hero-content {
+  max-width: 950px;
+}
 
-<section class="clients">
-  <div class="container">
-    <div class="marquee">
-      Communication Strategy • Branding • Digital Experience • UI/UX • Creative Coding • Motion • Technology •
-    </div>
-  </div>
-</section>
+.badge {
+  display: inline-block;
+  background: rgba(255,60,60,0.1);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
-</main>
+.hero h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
 
+.hero p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
 
-<footer>
-  <div class="container footer-inner">
-    <a href="mailto:ginevraturco@gmail.com">
-      ginevraturco@gmail.com
-    </a>
+/* ---------- PROJECTS ---------- */
 
-    <a target="_blank"
-       href="https://www.linkedin.com/in/ginevra-turco/">
-       LinkedIn
-    </a>
-  </div>
-</footer>
+.projects {
+  padding: 7rem 0;
+}
 
+.section-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
 
-<div id="modal" class="modal" aria-hidden="true"></div>
+.grid {
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
 
-<script type="module" src="app.js"></script>
+/* ---------- CARD ---------- */
 
-</body>
-</html>
+.card {
+  cursor: pointer;
+  transition: transform .4s cubic-bezier(.2,.8,.2,1);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.card-media img {
+  width: 100%;
+  display: block;
+  transition: transform .7s ease;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  transition: opacity .4s ease;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay span {
+  color: white;
+  font-weight: 500;
+}
+
+.card-info {
+  margin-top: 1.2rem;
+}
+
+.number {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.card-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.card-info p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ---------- MODAL ---------- */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  z-index: 9999;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-content {
+  background: #111;
+  width: 100%;
+  max-width: 1100px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.gallery {
+  flex: 1;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+}
+
+.gallery img,
+.gallery video {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  object-fit: cover;
+}
+
+.project-details {
+  padding: 1.5rem;
+  border-top: 1px solid #222;
+  max-height: 35%;
+  overflow-y: auto;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* ---------- BIO ---------- */
+
+.bio-section {
+  padding: 8rem 0;
+}
+
+.bio-grid {
+  display: grid;
+  gap: 4rem;
+}
+
+@media (min-width: 900px) {
+  .bio-grid {
+    grid-template-columns: 450px 1fr;
+  }
+}
+
+.bio-grid img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.bio-grid h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.bio-grid p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+  padding: 5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 6rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
