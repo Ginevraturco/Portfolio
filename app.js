@@ -26,7 +26,7 @@ projects.forEach((project, index) => {
 function openModal(project) {
   modal.setAttribute("aria-hidden", "false");
   modal.classList.add("open");
-
+document.body.style.overflow = "hidden";
   modal.innerHTML = `
     <div class="modal-content">
       <button class="close">×</button>
@@ -58,4 +58,5 @@ function openModal(project) {
 function closeModal() {
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "auto";
 }
